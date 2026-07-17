@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# local signup capture (PII, dev-only placeholder — swap for a real ESP/DB before launch)
+/data/signups.json
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

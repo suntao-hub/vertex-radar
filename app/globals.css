@@ -2,7 +2,17 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0f172a;
+
+  /* Vertex Radar brand palette */
+  --vt-navy: #0f172a;
+  --vt-navy-light: #1e293b;
+  --vt-slate: #475569;
+  --vt-accent: #0ea5a4;
+  --vt-fresh: #22c55e;
+  --vt-aging: #eab308;
+  --vt-liquidate: #f97316;
+  --vt-dead: #ef4444;
 }
 
 @theme inline {
