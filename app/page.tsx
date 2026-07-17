@@ -1,200 +1,243 @@
 import SignupForm from "./signup-form";
-
-const TIERS = [
-  {
-    name: "Fresh",
-    color: "bg-[var(--vt-fresh)]",
-    range: "0–60 days",
-    desc: "Selling normally. No action needed.",
-  },
-  {
-    name: "Aging",
-    color: "bg-[var(--vt-aging)]",
-    range: "61–120 days",
-    desc: "Slowing down. Worth a look this week.",
-  },
-  {
-    name: "Liquidate",
-    color: "bg-[var(--vt-liquidate)]",
-    range: "121–180 days",
-    desc: "Discount or bundle it now, before storage fees eat the margin.",
-  },
-  {
-    name: "Dead",
-    color: "bg-[var(--vt-dead)]",
-    range: "180+ days",
-    desc: "Cut losses. Every extra day costs you in storage fees.",
-  },
-];
-
-const STEPS = [
-  {
-    step: "1",
-    title: "Drop in your inventory",
-    desc: "Paste your SKU list — cost, units, and the date it landed — into the Inventory Input tab.",
-  },
-  {
-    step: "2",
-    title: "It ages automatically",
-    desc: "Every SKU is scored Fresh → Aging → Liquidate → Dead based on days on hand, with the dashboard doing the math.",
-  },
-  {
-    step: "3",
-    title: "Get the alert before the P&L does",
-    desc: "The connected tier emails you the moment a SKU crosses into Liquidate or Dead — not at month-end close.",
-  },
-];
+import SuiteGrid from "./suite-grid";
 
 export default function Home() {
   return (
-    <div className="flex flex-1 flex-col bg-white font-sans dark:bg-black">
-      {/* Nav */}
-      <header className="w-full border-b border-black/5 dark:border-white/10">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
-          <span className="text-lg font-semibold tracking-tight text-[var(--vt-navy)] dark:text-white">
-            Vertex Radar{" "}
-            <span className="font-normal text-[var(--vt-slate)] dark:text-zinc-500">
-              · Inventory Aging
-            </span>
-          </span>
-          <a
-            href="#pricing"
-            className="text-sm font-medium text-[var(--vt-slate)] hover:text-[var(--vt-navy)] dark:text-zinc-400 dark:hover:text-white"
-          >
-            Pricing
+    <>
+      <header className="site">
+        <div className="wrap navrow">
+          <a className="brand" href="#top">
+            <span className="brand-mark">VR</span>
+            <span className="brand-word">Vertex Radar</span>
+          </a>
+          <nav className="links">
+            <a href="#suite">The Suite</a>
+            <a href="#how">How It Works</a>
+            <a href="#pricing">Pricing</a>
+          </nav>
+          <a className="btn btn-primary" href="#pricing">
+            Get the Tracker
           </a>
         </div>
       </header>
 
-      {/* Hero */}
-      <section className="mx-auto w-full max-w-5xl px-6 py-20 text-center sm:py-28">
-        <h1 className="mx-auto max-w-3xl text-4xl font-semibold leading-tight tracking-tight text-[var(--vt-navy)] sm:text-5xl dark:text-white">
-          Stop finding out about dead stock from your P&amp;L
-        </h1>
-        <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-[var(--vt-slate)] dark:text-zinc-400">
-          Vertex Radar flags aging Amazon and e-commerce inventory before it
-          becomes a liquidation problem — so you discount on your terms, not
-          after storage fees have already eaten the margin.
-        </p>
-        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <a
-            href="#pricing"
-            className="flex h-12 w-full items-center justify-center rounded-full bg-[var(--vt-navy)] px-6 text-base font-medium text-white transition-colors hover:bg-[var(--vt-navy-light)] sm:w-auto"
-          >
-            Get the tracker
-          </a>
-          <a
-            href="#how-it-works"
-            className="flex h-12 w-full items-center justify-center rounded-full border border-black/10 px-6 text-base font-medium text-[var(--vt-navy)] transition-colors hover:bg-black/[.03] sm:w-auto dark:border-white/15 dark:text-white dark:hover:bg-white/[.06]"
-          >
-            See how it works
-          </a>
-        </div>
-      </section>
+      <main id="top">
+        {/* HERO */}
+        <section className="hero">
+          <div className="wrap hero-grid">
+            <div>
+              <div className="eyebrow">For Amazon &amp; e-commerce operators</div>
+              <h1>Find the cash hiding in your operation.</h1>
+              <p className="lede">
+                A suite of dynamic trackers that turn your inventory, PPC, and
+                margin data into a straight answer: what&apos;s working,
+                what&apos;s bleeding money, and what to do about it.
+              </p>
+              <div className="hero-ctas">
+                <a className="btn btn-primary" href="#pricing">
+                  Get the Inventory Aging Tracker →
+                </a>
+                <a className="btn btn-ghost" href="#suite">
+                  See the full suite
+                </a>
+              </div>
+            </div>
+            <div className="mock" aria-hidden="true">
+              <div className="mock-top">
+                <span className="mock-title">DASHBOARD — INVENTORY AGING</span>
+                <span className="pulse">
+                  <span className="pulse-dot" />
+                  LIVE
+                </span>
+              </div>
+              <div className="mock-kpis">
+                <div className="kpi">
+                  <div className="kpi-label">Total Value</div>
+                  <div className="kpi-value">$184,300</div>
+                </div>
+                <div className="kpi">
+                  <div className="kpi-label">Dead Stock</div>
+                  <div className="kpi-value red">$31,900</div>
+                </div>
+                <div className="kpi">
+                  <div className="kpi-label">Carrying Cost</div>
+                  <div className="kpi-value amber">$2,940</div>
+                </div>
+                <div className="kpi">
+                  <div className="kpi-label">SKUs Tracked</div>
+                  <div className="kpi-value">312</div>
+                </div>
+              </div>
+              <div className="mock-bars">
+                <div className="bars-row">
+                  <div className="bar" style={{ height: "38%", background: "#4ADE80" }} />
+                  <div className="bar" style={{ height: "52%", background: "#FACC15" }} />
+                  <div className="bar" style={{ height: "29%", background: "#FB923C" }} />
+                  <div className="bar" style={{ height: "71%", background: "#F87171" }} />
+                  <div className="bar" style={{ height: "18%", background: "#94A3B8" }} />
+                </div>
+                <div className="bars-labels">
+                  <span>ACTIVE</span>
+                  <span>WATCH</span>
+                  <span>DISC.</span>
+                  <span>LIQ.</span>
+                  <span>DEAD</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-      {/* Aging tiers */}
-      <section className="mx-auto w-full max-w-5xl px-6 pb-20">
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-          {TIERS.map((tier) => (
-            <div
-              key={tier.name}
-              className="rounded-2xl border border-black/5 p-5 dark:border-white/10"
-            >
-              <div className={`h-2 w-10 rounded-full ${tier.color}`} />
-              <div className="mt-4 text-base font-semibold text-[var(--vt-navy)] dark:text-white">
-                {tier.name}
+        {/* STATS */}
+        <div className="stats">
+          <div className="wrap stats-row">
+            <div className="stat">
+              <div className="stat-num mono">$7.9M+</div>
+              <div className="stat-label">
+                in dead inventory surfaced in a single account audit
               </div>
-              <div className="text-sm text-[var(--vt-slate)] dark:text-zinc-500">
-                {tier.range}
+            </div>
+            <div className="stat">
+              <div className="stat-num mono">24 yrs</div>
+              <div className="stat-label">
+                operating Amazon, Walmart, eBay &amp; DTC channels
               </div>
-              <p className="mt-2 text-sm leading-6 text-[var(--vt-slate)] dark:text-zinc-400">
-                {tier.desc}
+            </div>
+            <div className="stat">
+              <div className="stat-num mono">$20M+</div>
+              <div className="stat-label">
+                in annual online revenue scaled on a single account
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* SUITE */}
+        <section id="suite">
+          <div className="wrap">
+            <div className="section-head">
+              <div className="section-eyebrow">The Suite</div>
+              <h2>One system, built one tracker at a time.</h2>
+              <p>
+                Each tracker stands on its own — buy the one you need.
+                They&apos;re built to share the same dynamic-field engine, so
+                the next one will feel familiar on day one.
               </p>
             </div>
-          ))}
-        </div>
-      </section>
+            <SuiteGrid />
+          </div>
+        </section>
 
-      {/* How it works */}
-      <section
-        id="how-it-works"
-        className="w-full bg-zinc-50 py-20 dark:bg-zinc-950"
-      >
-        <div className="mx-auto max-w-5xl px-6">
-          <h2 className="text-center text-2xl font-semibold tracking-tight text-[var(--vt-navy)] sm:text-3xl dark:text-white">
-            How it works
-          </h2>
-          <div className="mt-12 grid gap-10 sm:grid-cols-3">
-            {STEPS.map((s) => (
-              <div key={s.step}>
-                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--vt-navy)] text-sm font-semibold text-white">
-                  {s.step}
-                </div>
-                <h3 className="mt-4 text-base font-semibold text-[var(--vt-navy)] dark:text-white">
-                  {s.title}
-                </h3>
-                <p className="mt-2 text-sm leading-6 text-[var(--vt-slate)] dark:text-zinc-400">
-                  {s.desc}
+        {/* HOW IT WORKS */}
+        <section
+          id="how"
+          style={{
+            background: "var(--panel)",
+            borderTop: "1px solid var(--line)",
+            borderBottom: "1px solid var(--line)",
+          }}
+        >
+          <div className="wrap">
+            <div className="section-head">
+              <div className="section-eyebrow">How It Works</div>
+              <h2>Three steps, every tracker.</h2>
+            </div>
+            <div className="steps">
+              <div className="step">
+                <div className="step-num mono">1</div>
+                <h3>Enter your data</h3>
+                <p>
+                  Fill in your SKUs, campaigns, or launch numbers. Dynamic
+                  fields adjust to your own categories, thresholds, and
+                  workflow — not a fixed template.
                 </p>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing */}
-      <section id="pricing" className="mx-auto w-full max-w-5xl px-6 py-20">
-        <h2 className="text-center text-2xl font-semibold tracking-tight text-[var(--vt-navy)] sm:text-3xl dark:text-white">
-          Start with the template. Upgrade when the alerts pay for themselves.
-        </h2>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2">
-          <div className="rounded-2xl border border-black/10 p-8 dark:border-white/10">
-            <h3 className="text-lg font-semibold text-[var(--vt-navy)] dark:text-white">
-              Static Tracker
-            </h3>
-            <p className="mt-1 text-sm text-[var(--vt-slate)] dark:text-zinc-400">
-              One-time purchase, Excel or Google Sheets
-            </p>
-            <p className="mt-6 text-3xl font-semibold text-[var(--vt-navy)] dark:text-white">
-              $15–29
-            </p>
-            <a
-              href="https://etsy.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 flex h-11 w-full items-center justify-center rounded-full border border-[var(--vt-navy)] text-sm font-medium text-[var(--vt-navy)] transition-colors hover:bg-black/[.03] dark:border-white dark:text-white dark:hover:bg-white/[.06]"
-            >
-              Buy on Etsy
-            </a>
-            <p className="mt-3 text-xs text-[var(--vt-slate)] dark:text-zinc-500">
-              Shop link goes live at Etsy launch.
-            </p>
-          </div>
-          <div className="rounded-2xl border border-[var(--vt-accent)] bg-[var(--vt-accent)]/[.04] p-8">
-            <h3 className="text-lg font-semibold text-[var(--vt-navy)] dark:text-white">
-              Connected (coming soon)
-            </h3>
-            <p className="mt-1 text-sm text-[var(--vt-slate)] dark:text-zinc-400">
-              Google Sheets Add-on with daily aging alerts
-            </p>
-            <p className="mt-6 text-3xl font-semibold text-[var(--vt-navy)] dark:text-white">
-              Monthly subscription
-            </p>
-            <p className="mt-1 text-xs text-[var(--vt-slate)] dark:text-zinc-500">
-              Price to be announced
-            </p>
-            <div className="mt-6">
-              <SignupForm />
+              <div className="step">
+                <div className="step-num mono">2</div>
+                <h3>Get the analysis, automatically</h3>
+                <p>
+                  Every tracker calculates status, flags risk, and rolls it
+                  up into a dashboard the moment you type — no formulas to
+                  touch.
+                </p>
+              </div>
+              <div className="step">
+                <div className="step-num mono">3</div>
+                <h3>Export anywhere, or stay connected</h3>
+                <p>
+                  Download to Excel or PDF for a one-time snapshot, or
+                  connect it to Google Sheets for live tracking and automatic
+                  alerts.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <footer className="w-full border-t border-black/5 py-8 dark:border-white/10">
-        <div className="mx-auto max-w-5xl px-6 text-center text-sm text-[var(--vt-slate)] dark:text-zinc-500">
-          Vertex Radar is a product of Vertex Deal LLC.
+        {/* PRICING */}
+        <section id="pricing">
+          <div className="wrap">
+            <div className="section-head">
+              <div className="section-eyebrow">Pricing</div>
+              <h2>Buy it once, or keep it running.</h2>
+              <p>
+                Start with the static workbook. Move to the connected tier
+                when you want alerts the moment a SKU needs attention.
+              </p>
+            </div>
+            <div className="tiers">
+              <div className="tier">
+                <div className="tier-head">
+                  <span className="tier-name">Static</span>
+                  <span className="tier-price mono">one-time</span>
+                </div>
+                <div className="tier-sub">A finished workbook, yours to keep.</div>
+                <ul>
+                  <li>Full Excel workbook per tracker, dynamic Settings tab</li>
+                  <li>Export to Excel or PDF, no login required</li>
+                  <li>Works offline, nothing installed</li>
+                  <li>Ideal if you check in weekly, not daily</li>
+                </ul>
+                <a
+                  className="btn btn-ghost"
+                  href="https://etsy.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ width: "100%", justifyContent: "center" }}
+                >
+                  Get it on Etsy
+                </a>
+                <p className="tier-note">Shop link goes live at Etsy launch.</p>
+              </div>
+              <div className="tier connected">
+                <div className="tier-head">
+                  <span className="tier-name">Connected</span>
+                  <span className="tier-price mono">subscription</span>
+                </div>
+                <div className="tier-sub">Lives in your own Google Sheet.</div>
+                <ul>
+                  <li>Everything in Static, plus:</li>
+                  <li>Runs in your own Google Drive — your data never leaves it</li>
+                  <li>Email alert the moment a SKU goes Liquidate or Dead</li>
+                  <li>New trackers and fixes update automatically</li>
+                </ul>
+                <SignupForm />
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <div className="wrap foot-row">
+          <span className="foot-brand">VERTEX RADAR — a Vertex Deal LLC product</span>
+          <div className="foot-links">
+            <a href="#suite">The Suite</a>
+            <a href="#how">How It Works</a>
+            <a href="#pricing">Pricing</a>
+          </div>
         </div>
       </footer>
-    </div>
+    </>
   );
 }
