@@ -119,9 +119,10 @@ export default function Home() {
               <div className="section-eyebrow">The Suite</div>
               <h2>One system, built one tracker at a time.</h2>
               <p>
-                Each tracker stands on its own — buy the one you need.
-                They&apos;re built to share the same dynamic-field engine, so
-                the next one will feel familiar on day one.
+                Each tracker stands on its own — buy the one you need. They
+                all run on the same engine: dynamic fields you customize,
+                automatic calculation the moment you type, export anywhere.
+                Learn one, and the next one feels familiar on day one.
               </p>
             </div>
             <SuiteGrid />

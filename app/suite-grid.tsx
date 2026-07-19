@@ -7,7 +7,7 @@ const TRACKERS = [
     index: "01",
     status: "live" as const,
     title: "Inventory Aging & Dead Stock Tracker",
-    desc: "See exactly which SKUs are tying up cash, aged by days since last sale, with a recommended action for each one.",
+    desc: "Pulls Last Sale Date and Date Received straight from your Amazon reports — no manual entry — ages every SKU into Active, Watch, Discount, Liquidate, or Dead, and shows what leaving it there is actually costing you.",
     link: { href: "#pricing", label: "Get it now →" },
   },
   {
