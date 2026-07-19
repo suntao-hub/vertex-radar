@@ -7,7 +7,7 @@ export default function Home() {
       <header className="site">
         <div className="wrap navrow">
           <a className="brand" href="#top">
-            <span className="brand-mark">VR</span>
+            <img src="/logo.svg" alt="" className="brand-mark" width={32} height={32} />
             <span className="brand-word">Vertex Radar</span>
           </a>
           <nav className="links">
